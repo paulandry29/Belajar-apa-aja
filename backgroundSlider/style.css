@@ -60,7 +60,7 @@ body::before {
   color: #fff;
   padding: 20px;
   font-size: 30px;
-  border: 2px thick rgb(255, 255, 255);
+  border: 2px transparent rgb(255, 255, 255);
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
