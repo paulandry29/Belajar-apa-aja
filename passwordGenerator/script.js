@@ -22,5 +22,66 @@ clipboardEl.addEventListener('click', () => {
 
     textarea.value = password
     document.body.appendChild(textarea)
-    
+    textarea.select()
+    document.execCommand('copy')
+    textarea.remove()
+    alert('Password copied to Clipboard')
 })
+
+generateEl.addEventListener('click', () => {
+    if(lengthEl.value > 20){
+        lengthEl.value = 20
+        alert('Maximum number of password is 20')
+    }else if(lengthEl.value < 4){
+        lengthEl.value = 4
+        alert('Minimum number of password is 4')
+    }else{
+        lengthEl.value = 20
+    }
+
+    const length = +lengthEl.value - 2
+    const hasUpper = uppercaseEl.checked
+    const hasLower = lowercaseEl.checked
+    const hasSymbol = symbolEl.checked
+    const hasNumber = numberEl.checked
+
+    resultEl.innerText = generatePassword(hasUpper, hasLower, hasSymbol, hasNumber, length)
+})
+
+function generatePassword(upper, lower, symbol, number, length){
+    let generatePassword = ''
+    const typeCount = upper + lower + symbol + number
+    const typeArr = [{upper}, {lower}, {symbol}, {number}].filter(item => Object.values(item)[0])
+
+    if(typeCount === 0){
+        return ''
+    }
+
+    for(let i = 0; i < length; i += typeCount){
+        typeArr.forEach(type => {
+            const funcName = Object.keys(type)[0]
+            generatePassword += randomFunction[funcName]()
+        })
+    }
+
+    const finalPassword = generatePassword.slice(0, length)
+
+    return finalPassword + '<3'
+}
+
+function lowerRand() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+}
+
+function upperRand() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
+}
+
+function numberRand() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+}
+
+function symbolRand() {
+    const symbols = '!@#$%^&*(){}[]=<>/,.'
+    return symbols[Math.floor(Math.random() * symbols.length)]
+}
