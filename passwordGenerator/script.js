@@ -36,10 +36,10 @@ generateEl.addEventListener('click', () => {
         lengthEl.value = 4
         alert('Minimum number of password is 4')
     }else{
-        lengthEl.value = 20
+        lengthEl.value = lengthEl.value
     }
 
-    const length = +lengthEl.value - 2
+    const length = +lengthEl.value
     const hasUpper = uppercaseEl.checked
     const hasLower = lowercaseEl.checked
     const hasSymbol = symbolEl.checked
@@ -66,7 +66,7 @@ function generatePassword(upper, lower, symbol, number, length){
 
     const finalPassword = generatePassword.slice(0, length)
 
-    return finalPassword + '<3'
+    return finalPassword
 }
 
 function lowerRand() {
