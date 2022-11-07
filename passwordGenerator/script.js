@@ -32,9 +32,9 @@ generateEl.addEventListener('click', () => {
     if(lengthEl.value > 20){
         lengthEl.value = 20
         alert('Maximum number of password is 20')
-    }else if(lengthEl.value < 4){
-        lengthEl.value = 4
-        alert('Minimum number of password is 4')
+    }else if(lengthEl.value < 8){
+        lengthEl.value = 8
+        alert('Minimum number of password is 8 for more scure')
     }else{
         lengthEl.value = lengthEl.value
     }

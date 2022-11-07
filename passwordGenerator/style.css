@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #3b3b98;
+  background-color: #3f3f9e;
   color: #fff;
   font-family: 'Muli', sans-serif;
   display: flex;
@@ -29,10 +29,11 @@ h2 {
   padding: 20px;
   width: 350px;
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .result-container {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.164);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -83,4 +84,8 @@ h2 {
   justify-content: space-between;
   align-items: center;
   margin: 15px 0;
+}
+
+input[type="checkbox"]{
+  accent-color: rgb(155, 209, 54);
 }
