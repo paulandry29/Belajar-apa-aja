@@ -100,8 +100,6 @@ Array(300).fill().forEach(addStar);
 
 
 
-
-
 //moon
 const moonTexture = new THREE.TextureLoader().load('moon-texture.jpg');
 
